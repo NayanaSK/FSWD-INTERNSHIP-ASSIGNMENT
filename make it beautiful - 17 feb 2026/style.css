@@ -1,0 +1,31 @@
+body{
+    background: lightgray;
+    font-family: Arial;
+}
+
+.container{
+    width:70%;
+    margin:auto;
+    background:white;
+    padding:20px;
+}
+
+h1{
+    text-align:center;
+    color:blue;
+}
+
+h2{
+    color:gray;
+}
+
+.section{
+    margin-top:20px;
+}
+
+a{
+    background:blue;
+    color:white;
+    padding:10px;
+    text-decoration:none;
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Interactive Form</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #74ebd5, #acb6e5);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    margin:0;
+}
+
+.container{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    width:320px;
+    box-shadow:0px 0px 10px gray;
+}
+
+h2{
+    text-align:center;
+    color:#333;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border-radius:5px;
+    border:1px solid #ccc;
+}
+
+button{
+    width:100%;
+    padding:10px;
+    background:#3498db;
+    color:white;
+    border:none;
+    border-radius:5px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#2c80b4;
+}
+
+.error{
+    color:red;
+    text-align:center;
+}
+
+.success{
+    color:green;
+    text-align:center;
+}
+</style>
+
+<script>
+function validateForm(){
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let password = document.getElementById("password").value.trim();
+    let message = document.getElementById("message");
+
+    if(name === "" || email === "" || password === ""){
+        message.innerHTML = "⚠ Please fill all fields";
+        message.className = "error";
+        return false;
+    }
+
+    if(password.length < 6){
+        message.innerHTML = "⚠ Password must be at least 6 characters";
+        message.className = "error";
+        return false;
+    }
+
+    message.innerHTML = "✔ Form submitted successfully!";
+    message.className = "success";
+    return false; // prevents page reload
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="container">
+<h2>Registration Form</h2>
+
+<form onsubmit="return validateForm()">
+
+<input type="text" id="name" placeholder="Enter your name" required>
+
+<input type="email" id="email" placeholder="Enter your email" required>
+
+<input type="password" id="password" placeholder="Enter password" required>
+
+<button type="submit">Submit</button>
+
+</form>
+
+<p id="message"></p>
+
+</div>
+
+</body>
+</html>
